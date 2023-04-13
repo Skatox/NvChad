@@ -9,7 +9,7 @@ local plugins = {
     "amiorin/vim-project",
     lazy = false,
     config = function()
-        vim.cmd("source ~/.config/nvim/lua/custom/projects.nvim")
+        vim.cmd("source ~/.config/nvim/lua/custom/configs/vim-project.nvim")
     end,
   },
   { "tpope/vim-obsession" },
@@ -35,6 +35,14 @@ local plugins = {
          suggestion_color = {gui = "#808080", cterm = 244},
          exclude_filetypes = {"TelescopePrompt"}
       })
+    end,
+  },
+  -- Overrides default config
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
     end,
   },
 
