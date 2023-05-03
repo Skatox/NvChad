@@ -1,8 +1,8 @@
 local M = {}
 
-M.easymotion = {
+M.hop = {
 	n = {
-		["<Leader>s"] = {"<cmd>easymotion-bd-f2", "Easy motion"}
+		["<Leader>w"] = {"<cmd>HopWord<CR>", "Easy motion"}
 	}
 }
 

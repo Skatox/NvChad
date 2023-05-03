@@ -1,8 +1,22 @@
 local plugins = {
   { "tpope/vim-fugitive" },
-  { "easymotion/vim-easymotion" },
+  { 
+    "phaazon/hop.nvim",
+    lazy=false,
+    config = function()
+      require'hop'.setup {}
+      require "custom.configs.hop-config"
+    end,
+  },
   { "michaeljsmith/vim-indent-object" },
   { "tpope/vim-surround"},
+  { 
+    "christoomey/vim-tmux-navigator",
+    config = function()
+      require "custom.configs.tmux"
+    end,
+
+  },
 
   -- IDE
   {
@@ -29,7 +43,7 @@ local plugins = {
     config = function()
       require('tabnine').setup({
          disable_auto_comment=true,
-         accept_keymap="<S-Tab>",
+         accept_keymap="<S-Right>",
          dismiss_keymap = "<C-]>",
          debounce_ms = 800,
          suggestion_color = {gui = "#808080", cterm = 244},
