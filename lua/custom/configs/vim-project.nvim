@@ -1,8 +1,0 @@
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Welcome | endif
-
-let g:project_enable_welcome = 1
-
-set rtp+=~/.config/nvim/plugged/vim-project
-
-source ~/.config/nvim/lua/custom/configs/projects.nvim
-
