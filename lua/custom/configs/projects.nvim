@@ -1,7 +1,8 @@
-call project#rc("/var/www/")
+call project#rc("/Users/skatox/Sites/")
    Project 'autorepeat'
    Project '/var/www/pricetool/', 'pricetool'
    Project 'startuping'
    Project 'zohotool'
 
    Project 'wordpress/wp-content/plugins/jquery-archive-list-widget', 'jQuery Archive List'
+   Project 'wordpress/wp-content/plugins/jquery-categories-list', 'JS Categories List'
