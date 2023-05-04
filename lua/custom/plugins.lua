@@ -1,5 +1,8 @@
 local plugins = {
-  { "tpope/vim-fugitive" },
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
   {
     "phaazon/hop.nvim",
     lazy=false,
@@ -9,13 +12,15 @@ local plugins = {
     end,
   },
   { "michaeljsmith/vim-indent-object" },
-  { "tpope/vim-surround"},
+  {
+    "tpope/vim-surround",
+    lazy = false,
+  },
   {
     "christoomey/vim-tmux-navigator",
     config = function()
       require "custom.configs.tmux"
     end,
-
   },
 
   -- IDE
@@ -26,7 +31,10 @@ local plugins = {
         vim.cmd("source ~/.config/nvim/lua/custom/configs/vim-project.nvim")
     end,
   },
-  { "tpope/vim-obsession" },
+  {
+    "tpope/vim-obsession",
+    lazy = false,
+  },
   { "dyng/ctrlsf.vim" },
   { "Yggdroot/indentLine"},
   { "inkarkat/vim-ReplaceWithRegister" },
@@ -38,7 +46,10 @@ local plugins = {
     end,
   },
   { "mhinz/vim-signify" },
-  { "tommcdo/vim-exchange" },
+  {
+    "tommcdo/vim-exchange",
+    lazy = false,
+  },
   {
     "codota/tabnine-nvim",
     lazy = false,
