@@ -6,6 +6,18 @@ M.hop = {
 	}
 }
 
+M.nvimtree = {
+  plugin = true,
+
+  n = {
+    -- toggle
+    ["<F4>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+
+    -- focus
+    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
+  },
+}
+
 M.comment_additional = {
   -- toggle comment in both modes
   n = {

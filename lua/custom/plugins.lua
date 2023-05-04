@@ -1,6 +1,6 @@
 local plugins = {
   { "tpope/vim-fugitive" },
-  { 
+  {
     "phaazon/hop.nvim",
     lazy=false,
     config = function()
@@ -10,7 +10,7 @@ local plugins = {
   },
   { "michaeljsmith/vim-indent-object" },
   { "tpope/vim-surround"},
-  { 
+  {
     "christoomey/vim-tmux-navigator",
     config = function()
       require "custom.configs.tmux"
@@ -32,7 +32,10 @@ local plugins = {
   { "inkarkat/vim-ReplaceWithRegister" },
   {
     "mg979/vim-visual-multi",
-    branch = "master"
+    branch = "master",
+    config = function()
+      require "custom.configs.visual-multi"
+    end,
   },
   { "mhinz/vim-signify" },
   { "tommcdo/vim-exchange" },
