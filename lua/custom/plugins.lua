@@ -41,6 +41,7 @@ local plugins = {
   {
     "mg979/vim-visual-multi",
     branch = "master",
+    lazy = false,
     config = function()
       require "custom.configs.visual-multi"
     end,
@@ -64,6 +65,14 @@ local plugins = {
          exclude_filetypes = {"TelescopePrompt"}
       })
     end,
+  },
+  {
+	'mvllow/modes.nvim',
+	tag = 'v0.2.0',
+	lazy = false,
+	config = function()
+	   require('modes').setup()
+	end
   },
   -- Overrides default config
   {
