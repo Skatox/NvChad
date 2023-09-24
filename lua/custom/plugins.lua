@@ -1,4 +1,15 @@
 local plugins = {
+	{
+		"williamboman/mason.nvim",
+		opts = {
+			ensure_installed = {
+				"eslint-lsp",
+				"js-debug-adapter",
+				"prettier",
+				"typescript-language-server"
+			}
+		}
+	},
   {
     "tpope/vim-fugitive",
     lazy = false,
@@ -46,7 +57,39 @@ local plugins = {
       require "custom.configs.visual-multi"
     end,
   },
+	{
+		"mhartington/formatter.nvim",
+		event = "VeryLazy",
+		opts = function (options)
+			return require "custom.configs.formatter"
+		end
+	},
   { "mhinz/vim-signify" },
+	{
+		"mfussenegger/nvim-dap",
+		config = function ()
+			require "custom.configs.dap"
+		end
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		event = "VeryLazy",
+		dependencies = "mfussenegger/nvim-dap",
+		config = function ()
+			local dap = require("dap")
+			local dapui = require("dapui")
+			require("dapui").setup()
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function ()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function ()
+				dapui.close()
+			end
+		end
+	},
   {
     "tommcdo/vim-exchange",
     lazy = false,
@@ -58,7 +101,7 @@ local plugins = {
     config = function()
       require('tabnine').setup({
          disable_auto_comment=true,
-         accept_keymap="<Right>",
+         accept_keymap="<Tab>",
          dismiss_keymap = "<C-]>",
          debounce_ms = 800,
          suggestion_color = {gui = "#808080", cterm = 244},
@@ -92,6 +135,13 @@ local plugins = {
 
   -- JS
   { "maxmellon/vim-jsx-pretty" },
+	{
+		"mfussenegger/nvim-lint",
+		event = "VeryLazy",
+		config = function()
+			require "custom.configs.lint"
+		end
+	}
 }
 
 return plugins
