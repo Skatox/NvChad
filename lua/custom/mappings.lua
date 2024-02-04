@@ -56,14 +56,14 @@ M.tabs = {
     -- cycle through buffers
     ["gt"] = {
       function()
-        require("nvchad_ui.tabufline").tabuflineNext()
+        require("nvchad.tabufline").tabuflineNext()
       end,
       "goto next buffer",
     },
 
     ["gT"] = {
       function()
-        require("nvchad_ui.tabufline").tabuflinePrev()
+        require("nvchad.tabufline").tabuflinePrev()
       end,
       "goto prev buffer",
     },
@@ -71,7 +71,7 @@ M.tabs = {
     -- close buffer + hide terminal buffer
     ["gx"] = {
       function()
-        require("nvchad_ui.tabufline").close_buffer()
+        require("nvchad.tabufline").close_buffer()
       end,
       "close buffer",
     },
