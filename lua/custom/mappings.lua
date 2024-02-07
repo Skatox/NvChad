@@ -81,6 +81,9 @@ M.tabs = {
 M.ctrl_p = {
    n = {
 		["<C-p>"] = { "<cmd> Telescope find_files <CR>", "find files" },
+		["<D-p>"] = { "<cmd> Telescope find_files <CR>", "find files" },
+		["<C-S-p>"] = { "<cmd> Telescope live_grep <CR>", "find in files" },
+		["<D-S-p>"] = { "<cmd> Telescope live_grep <CR>", "find in files" },
    }
 }
 
