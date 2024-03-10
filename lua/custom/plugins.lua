@@ -35,12 +35,32 @@ local plugins = {
   },
 
   -- IDE
+  -- {
+  --   "amiorin/vim-project",
+  --   lazy = false,
+  --   config = function()
+  --       vim.cmd("source ~/.config/nvim/lua/custom/configs/vim-project.nvim")
+  --   end,
+  -- },
   {
-    "amiorin/vim-project",
-    lazy = false,
-    config = function()
-        vim.cmd("source ~/.config/nvim/lua/custom/configs/vim-project.nvim")
+    "coffebar/neovim-project",
+    opts = {
+      projects = { -- define project roots
+        "~/Sites/*",
+        "/var/www/*",
+      },
+    },
+    init = function()
+      -- enable saving the state of plugins in the session
+      vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
     end,
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
+      { "Shatur/neovim-session-manager" },
+    },
+    lazy = false,
+    priority = 100,  
   },
   {
     "tpope/vim-obsession",
@@ -145,7 +165,11 @@ local plugins = {
 		config = function()
 			require "custom.configs.lint"
 		end
-	}
+	},
+  {
+    "Galooshi/vim-import-js",
+    lazy = false,
+  }
 }
 
 return plugins
